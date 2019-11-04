@@ -141,7 +141,7 @@ int main (int argc, char * argv[])
                       }
                       else
                       {
-                          if (accountnum < 0)
+                          if (accountnum <= 0)
                           {
                               printf("Account number must be positive. Please try again: ");
                               accountnum = -1;
