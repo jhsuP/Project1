@@ -480,10 +480,26 @@ void cleanup (struct record ** start)
     struct record * temp = NULL;
     temp = *start;
 
+    if (debugmode == 0)
+    {
+        printf("=== Clean Up function ===\n");
+    }
+
     if (*start != NULL) 
     {
+
+       if (debugmode == 0)
+       {
+           printf("Clean Up!\n");
+       }
+
         while (temp->next != NULL)
-        {
+        { 
+           if (debugmode == 0)
+           {
+               printf("Clean Up!\n");
+           }
+
             temp = temp->next;
             free(temp);
         }
