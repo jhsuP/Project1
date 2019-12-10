@@ -475,40 +475,28 @@ int writefile (struct record * start, char filename[ ] )
 //
 ****************************************************************************/
 
-void cleanup (struct record ** start) 
+void cleanup(struct record** start)
 {
-    struct record * temp = NULL;
-    temp = *start;
+	struct record* temp = NULL;
+	struct record* prev = NULL;
+	temp = *start;
 
-    if (debugmode == 0)
-    {
-        printf("=== Clean Up function ===\n");
-    }
+	if (debugmode == 0)
+	{
+		printf("=== Clean Up function ===\n");
+	}
 
-    if (*start != NULL) 
-    {
+	while (temp != NULL)
+	{
+		printf("Clean up!\n");
+		prev = temp;
+		temp = temp->next;
+		free(prev);
+	}
 
-       if (debugmode == 0)
-       {
-           printf("Clean Up!\n");
-       }
+	if (start != NULL)
+	{
+		*start = NULL;
+	}
 
-        while (temp->next != NULL)
-        { 
-           if (debugmode == 0)
-           {
-               printf("Clean Up!\n");
-           }
-
-            temp = temp->next;
-            free(temp);
-        }
-
-        free(*start);
-        *start = NULL;
-
-    }
 }
-
-
-
